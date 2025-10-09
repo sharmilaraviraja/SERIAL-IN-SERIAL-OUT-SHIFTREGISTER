@@ -25,18 +25,56 @@ Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and a
 
 **Procedure**
 
-/* write all the steps invloved */
+/* write all the steps invloved */Procedure:
+
+1. Connect four D flip-flops in series as shown in the circuit diagram.
+
+
+2. Apply a common clock signal to all flip-flops.
+
+
+3. Connect Q output of each flip-flop to the D input of the next flip-flop.
+
+
+4. Apply the serial input data (either 0 or 1) to the D input of the first flip-flop.
+
+
+5. Initially clear all flip-flops to logic ‘0’.
+
+
+6. Apply clock pulses one by one and observe the output of each flip-flop after every pulse.
+
+
+7. Note how the input bit moves through each flip-flop stage and finally appears at the serial output.
+
+
 
 **PROGRAM**
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming.
+SERIAL IN SERIAL OUT SHIFT REGISTER
 
-Developed by: RegisterNumber:
+module EXP10(clk, sin, q);
+input clk;
+input sin;
+output [3:0] q;
+reg [3:0] q;
+always @(posedge clk)
+begin
+q[0] <= sin;
+q[1] <= q[0];
+q[2] <= q[1];
+q[3] <= q[2];
+end
+endmodule
+Developed by: RegisterNumber:25018184 sharmila.R
 
 */
 
 **RTL LOGIC FOR SISO Shift Register**
+<img width="1790" height="963" alt="Screenshot 2025-10-08 110402" src="https://github.com/user-attachments/assets/e0093b55-3bac-411e-acaa-9deba33a7672" />
 
 **TIMING DIGRAMS FOR SISO Shift Register**
+<img width="1764" height="979" alt="Screenshot 2025-10-08 112352" src="https://github.com/user-attachments/assets/1c83580c-1238-48cf-a43b-8fbd9f760833" />
 
 **RESULTS**
